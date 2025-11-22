@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "A React/Node.js web application that lets users upload XML-based choose-your-own-adventure stories and automatically transforms them into an interactive, branching story experience. ",
   "main": "index.js",
+  "type": "module",
   "scripts": {
+    "start": "node index.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -15,5 +17,16 @@
   "bugs": {
     "url": "https://github.com/Ayoub-Marzouki/Dynamic-StoryTelling-CYOA/issues"
   },
-  "homepage": "https://github.com/Ayoub-Marzouki/Dynamic-StoryTelling-CYOA#readme"
+  "homepage": "https://github.com/Ayoub-Marzouki/Dynamic-StoryTelling-CYOA#readme",
+  "dependencies": {
+    "bcryptjs": "^3.0.3",
+    "cors": "^2.8.5",
+    "dotenv": "^17.2.3",
+    "express": "^5.1.0",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^9.0.0",
+    "multer": "^2.0.2",
+    "xml2js": "^0.6.2",
+    "xslt-processor": "^3.4.0"
+  }
 }
