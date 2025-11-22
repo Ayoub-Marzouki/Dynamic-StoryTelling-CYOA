@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<story>
+  <title>The Crystal of Eldoria</title>
+  <nodes>
+    <node id="start">
+      <text>You stand at the gates of the ancient city of Eldoria. Legends say the Crystal of Power is hidden within. The guard looks at you suspiciously.</text>
+      <image>/images/eldoria_gate.jpg</image>
+      <choices>
+        <choice target="bribe">Bribe the guard (10 gold)</choice>
+        <choice target="fight">Draw your sword</choice>
+        <choice target="sneak">Sneak around the wall</choice>
+      </choices>
+    </node>
+
+    <node id="bribe">
+      <text>The guard grins and takes your gold. "Stay out of trouble," he mutters, opening the gate. You are in the market square.</text>
+      <image>/images/market_square.jpg</image>
+      <choices>
+        <choice target="tavern">Go to the tavern</choice>
+        <choice target="castle">Head straight to the castle</choice>
+      </choices>
+    </node>
+
+    <node id="fight">
+      <text>You draw your sword, but the guard is faster. He sounds the alarm. Arrows rain down. Your adventure ends here.</text>
+      <image>/images/game_over_arrows.jpg</image>
+    </node>
+
+    <node id="sneak">
+      <text>You find a loose brick in the wall and squeeze through. You find yourself in a dark alleyway behind the castle.</text>
+      <image>/images/dark_alley.jpg</image>
+      <choices>
+        <choice target="sewer">Enter the sewers</choice>
+        <choice target="climb">Climb the castle wall</choice>
+      </choices>
+    </node>
+
+    <node id="tavern">
+      <text>The tavern is lively. An old wizard in the corner beckons you. He offers you a map for a drink.</text>
+      <image>/images/wizard_tavern.jpg</image>
+      <choices>
+        <choice target="buy_drink">Buy him a drink</choice>
+        <choice target="ignore">Ignore him and leave</choice>
+      </choices>
+    </node>
+
+    <node id="castle">
+      <text>You approach the castle gates. They are heavily guarded. There is no way in from here.</text>
+      <image>/images/castle_gate_guarded.jpg</image>
+      <choices>
+        <choice target="sneak">Go back and find another way</choice>
+      </choices>
+    </node>
+
+    <node id="sewer">
+      <text>The sewers are smelly but empty. You follow a tunnel that leads directly under the throne room!</text>
+      <image>/images/sewer_tunnel.jpg</image>
+      <choices>
+        <choice target="throne">Enter the throne room</choice>
+      </choices>
+    </node>
+
+    <node id="climb">
+      <text>You climb the wall, but a loose stone gives way. You fall into the moat. The crocodiles look hungry.</text>
+      <image>/images/moat_crocs.jpg</image>
+    </node>
+
+    <node id="buy_drink">
+      <text>The wizard gives you a map showing a secret entrance. You follow it and find the Crystal Chamber!</text>
+      <image>/images/crystal_chamber.jpg</image>
+      <choices>
+        <choice target="win">Take the Crystal</choice>
+      </choices>
+    </node>
+
+    <node id="ignore">
+      <text>You leave the tavern and wander the streets until nightfall. You never find the crystal.</text>
+      <image>/images/lonely_street.jpg</image>
+    </node>
+
+    <node id="throne">
+      <text>You emerge in the throne room. The King is asleep. The Crystal is on a pedestal next to him.</text>
+      <image>/images/sleeping_king.jpg</image>
+      <choices>
+        <choice target="win">Steal the Crystal</choice>
+      </choices>
+    </node>
+
+    <node id="win">
+      <text>You have the Crystal of Eldoria! You are the new protector of the realm.</text>
+      <image>/images/victory_crystal.jpg</image>
+    </node>
+  </nodes>
+</story>

@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<story>
+  <title>The Noir Files: Midnight Rain</title>
+  <nodes>
+    <node id="office">
+      <text>Rain batters the window of your office. A dame in a red dress walks in. She looks like trouble. "My husband is missing," she says.</text>
+      <image>/images/noir_office.jpg</image>
+      <choices>
+        <choice target="accept">"I'll take the case."</choice>
+        <choice target="refuse">"I'm retired, lady."</choice>
+      </choices>
+    </node>
+
+    <node id="refuse">
+      <text>She leaves a stack of cash on the desk and walks out. You stare at the money, then the bottle of whiskey. It's going to be a long night.</text>
+      <image>/images/whiskey_desk.jpg</image>
+    </node>
+
+    <node id="accept">
+      <text>You head to the husband's last known location: The Blue Note Jazz Club.</text>
+      <image>/images/jazz_club.jpg</image>
+      <choices>
+        <choice target="bartender">Talk to the bartender</choice>
+        <choice target="backroom">Sneak into the backroom</choice>
+      </choices>
+    </node>
+
+    <node id="bartender">
+      <text>The bartender wipes a glass. "Johnny? Yeah, he was here. left with some tough guys in suits."</text>
+      <image>/images/bartender.jpg</image>
+      <choices>
+        <choice target="docks">Head to the docks</choice>
+      </choices>
+    </node>
+
+    <node id="backroom">
+      <text>You pick the lock. Inside, you find a poker game run by the mob. They don't look happy to see you.</text>
+      <image>/images/mob_poker.jpg</image>
+      <choices>
+        <choice target="fight">Fight your way out</choice>
+        <choice target="talk">Talk your way out</choice>
+      </choices>
+    </node>
+
+    <node id="fight">
+      <text>You throw a punch, but there are too many of them. Everything goes black.</text>
+      <image>/images/knockout.jpg</image>
+    </node>
+
+    <node id="talk">
+      <text>"I'm just looking for Johnny," you say smoothly. The boss laughs. "Johnny's sleeping with the fishes. You wanna join him?"</text>
+      <image>/images/mob_boss.jpg</image>
+      <choices>
+        <choice target="run">Run!</choice>
+      </choices>
+    </node>
+
+    <node id="docks">
+      <text>You find Johnny tied up in a warehouse. You cut him loose just as the cops arrive. Case closed.</text>
+      <image>/images/docks_warehouse.jpg</image>
+    </node>
+
+    <node id="run">
+      <text>You crash through the window and land in the alley. You lost the lead, but you kept your life.</text>
+      <image>/images/broken_window.jpg</image>
+    </node>
+  </nodes>
+</story>

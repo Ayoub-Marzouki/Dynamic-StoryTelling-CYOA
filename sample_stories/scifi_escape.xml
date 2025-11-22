@@ -1,0 +1,60 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<story>
+  <title>Protocol: Void Runner</title>
+  <nodes>
+    <node id="wakeup">
+      <text>System Reboot... Visuals Online. You wake up in a cryo-pod on the starship 'Void Runner'. Alarms are blaring. "Oxygen levels critical," the AI announces.</text>
+      <image>/images/cryo_pod.jpg</image>
+      <choices>
+        <choice target="bridge">Run to the Bridge</choice>
+        <choice target="engineering">Check Engineering</choice>
+      </choices>
+    </node>
+
+    <node id="bridge">
+      <text>The bridge is in chaos. Sparks fly from the consoles. The captain is missing. You see a distress beacon blinking.</text>
+      <image>/images/scifi_bridge.jpg</image>
+      <choices>
+        <choice target="signal">Send Distress Signal</choice>
+        <choice target="nav">Check Navigation Logs</choice>
+      </choices>
+    </node>
+
+    <node id="engineering">
+      <text>Engineering is filled with smoke. The reactor core is unstable. You spot a manual override lever and a coolant terminal.</text>
+      <image>/images/reactor_core.jpg</image>
+      <choices>
+        <choice target="lever">Pull the Lever</choice>
+        <choice target="terminal">Hack the Terminal</choice>
+      </choices>
+    </node>
+
+    <node id="signal">
+      <text>Signal broadcasted. A nearby Federation cruiser responds. "Hold tight, we are docking." You are saved.</text>
+      <image>/images/rescue_ship.jpg</image>
+    </node>
+
+    <node id="nav">
+      <text>The logs show the ship was sabotaged. Suddenly, the airlock behind you opens. You are sucked into space.</text>
+      <image>/images/space_void.jpg</image>
+    </node>
+
+    <node id="lever">
+      <text>You pull the lever. The reactor vents the excess heat into the hallway... where you are standing.</text>
+      <image>/images/explosion.jpg</image>
+    </node>
+
+    <node id="terminal">
+      <text>You bypass the security protocols and stabilize the core. The ship is safe, but you are drifting in deep space.</text>
+      <image>/images/stable_core.jpg</image>
+      <choices>
+        <choice target="cryo">Return to Cryo-sleep</choice>
+      </choices>
+    </node>
+
+    <node id="cryo">
+      <text>You climb back into the pod. "Wake me up when we get home," you whisper. Darkness takes you.</text>
+      <image>/images/cryo_sleep.jpg</image>
+    </node>
+  </nodes>
+</story>

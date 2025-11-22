@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<story>
+  <title>The Haunted Mansion</title>
+  <nodes>
+    <node id="start">
+      <text>You stand before a creaking, old mansion. Thunder rumbles overhead. The door is slightly ajar.</text>
+      <choices>
+        <choice target="enter">Enter the mansion</choice>
+        <choice target="run">Run away in terror</choice>
+      </choices>
+    </node>
+    <node id="enter">
+      <text>You step inside. The hallway is dark, lit only by a flickering chandelier. You see a staircase going up and a door to the left.</text>
+      <choices>
+        <choice target="upstairs">Go upstairs</choice>
+        <choice target="kitchen">Enter the door on the left</choice>
+      </choices>
+    </node>
+    <node id="run">
+      <text>You run as fast as you can. You trip on a root and fall into a mud puddle. At least you are safe from the ghosts.</text>
+    </node>
+    <node id="upstairs">
+      <text>You climb the stairs. Suddenly, a ghost appears and says 'BOO!'. You faint.</text>
+    </node>
+    <node id="kitchen">
+      <text>You find a kitchen. There is a delicious cake on the table. You eat it and feel happy.</text>
+    </node>
+  </nodes>
+</story>
