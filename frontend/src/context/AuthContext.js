@@ -20,7 +20,7 @@ export const AuthProvider = ({ children }) => {
           // We could fetch full user details here if needed, 
           // for now we'll just use the id/username from the token/login response
           // or rely on the stored user info if we stored it.
-          // A robust way is to verify token with backend, but we'll trust valid JWT for now.
+          // skip token verification til later
           setUser({ id: decoded.id, username: decoded.username }); 
         }
       } catch (error) {
