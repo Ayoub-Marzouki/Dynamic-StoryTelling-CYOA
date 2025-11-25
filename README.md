@@ -166,6 +166,6 @@ Dynamic-StoryTelling-CYOA/
 │   │   ├── services/     # API Service (Axios)
 │   │   └── App.js        # Main Router
 │   └── package.json
-├── sample_story.xml      # Example file for testing
+├── sample_stories      # Some xml stories
 └── README.md
 ```

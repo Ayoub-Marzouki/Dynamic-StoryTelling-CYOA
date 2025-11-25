@@ -17,9 +17,7 @@ export const AuthProvider = ({ children }) => {
         if (decoded.exp * 1000 < Date.now()) {
           logout();
         } else {
-          // We could fetch full user details here if needed, 
-          // for now we'll just use the id/username from the token/login response
-          // or rely on the stored user info if we stored it.
+          // use the id/username from the token/login response
           // skip token verification til later
           setUser({ id: decoded.id, username: decoded.username }); 
         }
