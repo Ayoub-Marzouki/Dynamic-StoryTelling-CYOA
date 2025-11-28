@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<users>
+  <user role="admin">
+    <username>admin</username>
+    <email>admin@cyoa.com</email>
+    <password>AdminSecret123!</password>
+  </user>
+  <user role="user">
+    <username>user1</username>
+    <email>user1@example.com</email>
+    <password>password123</password>
+  </user>
+  <user role="user">
+    <username>user2</username>
+    <email>user2@example.com</email>
+    <password>creativePass!</password>
+  </user>
+</users>

@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<library>
+  <genre id="scifi">
+    <label>Science Fiction</label>
+    <description>Space, aliens, and the future.</description>
+    <icon>🚀</icon>
+  </genre>
+  <genre id="noir">
+    <label>Detective Noir</label>
+    <description>Rainy streets, jazz, and mystery.</description>
+    <icon>🕵️</icon>
+  </genre>
+  <genre id="fantasy">
+    <label>Fantasy</label>
+    <description>Dragons, magic, and medieval kingdoms.</description>
+    <icon>🐉</icon>
+  </genre>
+</library>
