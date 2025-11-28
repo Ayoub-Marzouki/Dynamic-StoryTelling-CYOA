@@ -1,4 +1,5 @@
 import React from 'react';
+import './StoryPlayer.css';
 
 function StoryPlayer({ storyData }) {
   // Start with the first node in the array (usually 'start' or index 0)

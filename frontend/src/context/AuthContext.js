@@ -17,9 +17,9 @@ export const AuthProvider = ({ children }) => {
         if (decoded.exp * 1000 < Date.now()) {
           logout();
         } else {
-          // use the id/username from the token/login response
+          // use the id/username/role from the token/login response
           // skip token verification til later
-          setUser({ id: decoded.id, username: decoded.username }); 
+          setUser({ id: decoded.id, username: decoded.username, role: decoded.role || 'user' }); 
         }
       } catch (error) {
         logout();
@@ -32,7 +32,7 @@ export const AuthProvider = ({ children }) => {
     const res = await api.post('/auth/login', { email, password });
     localStorage.setItem('token', res.data.token);
     const decoded = jwtDecode(res.data.token);
-    setUser({ id: decoded.id, username: decoded.username }); 
+    setUser({ id: decoded.id, username: decoded.username, role: decoded.role || 'user' }); 
     return res.data;
   };
 
