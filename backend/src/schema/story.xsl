@@ -7,6 +7,9 @@
       <xsl:for-each select="//title">
         <title><xsl:value-of select="."/></title>
       </xsl:for-each>
+      <xsl:for-each select="//genre">
+        <genre><xsl:value-of select="."/></genre>
+      </xsl:for-each>
       <nodes>
         <xsl:for-each select="//nodes/node">
           <node id="{@id}">

@@ -42,6 +42,7 @@ router.post('/', auth, upload.single('file'), async (req, res) => {
     }
 
     const title = data.title || "Untitled";
+    const genreId = data.genre || "unknown";
     
     // Normalize nodes
     let nodes = [];
@@ -74,6 +75,7 @@ router.post('/', auth, upload.single('file'), async (req, res) => {
 
     const story = new Story({
       title: title,
+      genreId: genreId,
       author: req.user.id,
       originalXML: xmlContent,
       jsonContent: jsonContent

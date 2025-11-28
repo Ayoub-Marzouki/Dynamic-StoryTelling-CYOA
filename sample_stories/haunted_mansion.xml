@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <story>
-  <title>The Haunted Mansion</title>
+  <title>The Secret of Greystone Manor</title>
+  <genre>noir</genre>
   <nodes>
     <node id="start">
       <text>You stand before a creaking, old mansion. Thunder rumbles overhead. The door is slightly ajar.</text>

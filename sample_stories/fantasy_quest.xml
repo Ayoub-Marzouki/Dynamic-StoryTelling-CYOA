@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <story>
   <title>The Crystal of Eldoria</title>
+  <genre>fantasy</genre>
   <nodes>
     <node id="start">
       <text>You stand at the gates of the ancient city of Eldoria. Legends say the Crystal of Power is hidden within. The guard looks at you suspiciously.</text>

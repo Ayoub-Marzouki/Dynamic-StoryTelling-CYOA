@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <story>
   <title>The Noir Files: Midnight Rain</title>
+  <genre>noir</genre>
   <nodes>
     <node id="office">
       <text>Rain batters the window of your office. A dame in a red dress walks in. She looks like trouble. "My husband is missing," she says.</text>

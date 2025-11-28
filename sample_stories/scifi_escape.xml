@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <story>
-  <title>Protocol: Void Runner</title>
+  <title>Escape from Station X-9</title>
+  <genre>scifi</genre>
   <nodes>
     <node id="wakeup">
       <text>System Reboot... Visuals Online. You wake up in a cryo-pod on the starship 'Void Runner'. Alarms are blaring. "Oxygen levels critical," the AI announces.</text>
