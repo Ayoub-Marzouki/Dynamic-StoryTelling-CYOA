@@ -1,151 +1,113 @@
-/* Story Player Image Styles */
-.story-image {
-  max-width: 100%;
-  height: auto;
-  max-height: 400px;
-  display: block;
-  margin: 0 auto 20px auto; /* Center and add space below */
-  border-radius: 8px;
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-  object-fit: cover; /* Ensures the image covers the area nicely */
-}
-
-/* ... existing styles ... */
-
 body {
   margin: 0;
-  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  background-color: #f4f4f9;
-  color: #333;
+  background-color: #1e272e;
+  color: #f1f2f6;
+  min-height: 100vh;
 }
 
 code {
-  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
-    monospace;
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
 }
 
-.main-content {
-  max-width: 1200px;
-  margin: 2rem auto;
-  padding: 0 1rem;
+a {
+  text-decoration: none;
+  color: inherit;
 }
 
-/* Common Styles */
-.btn-primary {
-  background-color: #61dafb;
-  color: #282c34;
-  border: none;
+/* Global Buttons */
+.btn-primary, .btn-secondary {
   padding: 10px 20px;
-  font-size: 1rem;
+  border: none;
+  border-radius: 5px;
   cursor: pointer;
-  border-radius: 4px;
-  font-weight: bold;
+  font-size: 1rem;
+  font-weight: 600;
+  transition: background-color 0.2s;
+  text-align: center;
+  display: inline-block;
+}
+
+.btn-primary {
+  background-color: #00d2d3;
+  color: #222;
 }
 
 .btn-primary:hover {
-  background-color: #4fa8d1;
+  background-color: #01a3a4;
 }
 
 .btn-secondary {
-  background-color: #282c34;
+  background-color: #576574;
   color: white;
-  padding: 8px 16px;
-  text-decoration: none;
-  border-radius: 4px;
-  display: inline-block;
-  cursor: pointer;
-  border: none;
 }
 
-.auth-container, .upload-container {
-  max-width: 400px;
-  margin: 2rem auto;
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
+.btn-secondary:hover {
+  background-color: #222f3e;
 }
 
+/* Form Elements */
 .form-group {
-  margin-bottom: 1rem;
+  margin-bottom: 15px;
 }
 
 .form-group label {
   display: block;
-  margin-bottom: 0.5rem;
+  margin-bottom: 5px;
+  color: #c8d6e5;
 }
 
 .form-group input {
   width: 100%;
-  padding: 8px;
-  border: 1px solid #ccc;
-  border-radius: 4px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #576574;
+  background-color: #222f3e;
+  color: white;
+  font-size: 1rem;
 }
 
 .error-msg {
-  color: red;
-  background: #ffe6e6;
+  color: #ff6b81;
+  background: rgba(255, 107, 129, 0.1);
   padding: 10px;
-  border-radius: 4px;
-  margin-bottom: 1rem;
-}
-
-/* Dashboard Grid */
-.story-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fill, minmax(250px, 1fr));
-  gap: 20px;
-}
-
-.story-card {
-  background: white;
-  padding: 1.5rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.1);
-}
-
-/* Story Player */
-.play-container {
-  background: white;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 4px 10px rgba(0,0,0,0.1);
-  max-width: 800px;
-  margin: 0 auto;
-}
-
-.story-header {
-  text-align: center;
-  margin-bottom: 2rem;
-}
-
-.story-text {
-  font-size: 1.2rem;
-  line-height: 1.6;
-  margin-bottom: 2rem;
-}
-
-.choices-container {
-  display: flex;
-  flex-direction: column;
-  gap: 10px;
-}
-
-.btn-choice {
-  background-color: #e0e0e0;
-  border: 1px solid #ccc;
-  padding: 15px;
-  text-align: left;
-  font-size: 1.1rem;
-  cursor: pointer;
   border-radius: 5px;
-  transition: background 0.2s;
+  margin-bottom: 15px;
 }
 
-.btn-choice:hover {
-  background-color: #d4d4d4;
+.success-msg {
+  color: #2ed573;
+  background: rgba(46, 213, 115, 0.1);
+  padding: 10px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+
+.loading {
+  text-align: center;
+  margin-top: 50px;
+  font-size: 1.5rem;
+  color: #00d2d3;
+}
+
+/* Auth Containers */
+.auth-container, .upload-container {
+  max-width: 400px;
+  margin: 80px auto;
+  padding: 40px;
+  background-color: #2f3640;
+  border-radius: 10px;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.5);
+}
+
+.upload-container {
+  max-width: 600px;
+}
+
+.auth-container h2, .upload-container h2 {
+  text-align: center;
+  margin-bottom: 30px;
+  color: #00d2d3;
 }
