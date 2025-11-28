@@ -8,164 +8,149 @@ A lightweight, interactive platform that transforms structured **XML stories** i
 
 1.  [Project Overview](#project-overview)
 2.  [Technology Stack](#technology-stack)
-3.  [Constraints & Architecture](#constraints--architecture)
-4.  [Features](#features)
-5.  [Prerequisites](#prerequisites)
-6.  [Installation & Setup](#installation--setup)
-7.  [Usage Guide (XML Format)](#usage-guide-xml-format)
-8.  [Folder Structure](#folder-structure)
+3.  [Features](#features)
+4.  [Prerequisites](#prerequisites)
+5.  [Installation & Setup (Docker)](#installation--setup-docker)
+6.  [How to Run & Test (Step-by-Step)](#how-to-run--test-step-by-step)
+7.  [XML Formats](#xml-formats)
 
 ---
 
 ## Project Overview
 
-This project is designed to bridge the gap between structured data (XML) and interactive web experiences. It serves as a player for branching narratives without the need for complex game engines. The core philosophy is simple: **Readable Stories -> Interactive Gameplay**.
-
-The system uses an **XSLT (Extensible Stylesheet Language Transformations)** pipeline to convert uploaded XML story files into a canonical JSON format, which is then stored in a MongoDB database and served to a React frontend.
+This project bridges the gap between structured data (XML) and interactive web experiences. It uses a heterogeneous data architecture where **Users**, **Genres**, and **Stories** are all imported via XML files, processed by XSLT, and stored in MongoDB.
 
 ---
 
 ## Technology Stack
 
-*   **Frontend:** React (v19), React Router DOM, Axios, CSS Modules.
+*   **Frontend:** React (v19), React Router DOM, Fetch API, CSS Modules.
 *   **Backend:** Node.js, Express.js.
 *   **Database:** MongoDB (Mongoose ODM).
 *   **Authentication:** JWT (JSON Web Tokens), Bcryptjs.
-*   **Data Processing:** `xslt-processor` (XML to JSON transformation), `xml2js`.
-*   **Validation:** Client-side (React state) and Server-side (Controller logic).
-
----
-
-## Constraints & Architecture
-
-This project was built adhering to a specific set of architectural constraints and requirements:
-
-1.  **TRAF (Transient/Transformational XML):** The system handles multiple XML files as the source of truth for story logic.
-2.  **XML with XSL/XSD:**
-    *   **Data Modeling:** Stories are modeled in XML.
-    *   **Transformation:** A dedicated module uses XSL to transform input XML into JSON data suitable for MongoDB storage.
-3.  **Database:** MongoDB is used exclusively for storing the transformed JSON data and user information.
-4.  **Separation of Concerns:**
-    *   **Frontend:** React handles the UI and interactive player state.
-    *   **Backend:** Node.js/Express serves the RESTful API.
-5.  **Security:**
-    *   **Authentication:** Implemented using JWT (stateless authentication).
-    *   **Validation:** Input validation is performed on both the client and server sides.
-6.  **Containerization:** *Designed to be container-ready for Docker Desktop (Phase 2).*
-7.  **RESTful API:** Adheres to standard HTTP methods (GET, POST) and status codes.
+*   **Data Processing:** `xslt-processor`, `xml2js`.
+*   **Containerization:** Docker, Docker Compose.
 
 ---
 
 ## Features
 
-*   **User Authentication:** Secure Register and Login functionality.
-*   **Story Upload:** Users can upload `.xml` files. The backend validates and transforms them instantly.
-*   **Interactive Player:** A polished React component that renders story nodes, choices, and images dynamically.
-*   **Dashboard:** Browse all uploaded adventures and jump into any story.
-*   **State Management:** Tracks the user's current path through the narrative.
+*   **Role-Based Access:** 
+    *   **Admin:** Can import Users and Genres via XML.
+    *   **Author:** Can upload Stories via XML.
+    *   **Player:** Can browse genres and play stories.
+*   **Genre-Based Navigation:** Stories are organized by categories (Sci-Fi, Noir, Fantasy).
+*   **XML Transformation:** All core data enters the system as XML and is transformed server-side into JSON.
+*   **Interactive Player:** A polished React component for playing the stories.
 
 ---
 
 ## Prerequisites
 
-Before running the project, ensure you have the following installed:
-
-*   **Node.js** (v14 or higher)
-*   **MongoDB** (Local instance running on port `27017` or a cloud URI)
+*   **Docker Desktop** (Installed and running).
 
 ---
 
-## Installation & Setup
+## Installation & Setup (Docker)
 
-The project is divided into two main folders: `backend` and `frontend`. You will need two terminal windows.
+You do not need to install Node.js or MongoDB manually. Docker handles everything.
 
-### 1. Backend Setup
+1.  **Clone the repository:**
+    ```bash
+    git clone <repository-url>
+    cd Dynamic-StoryTelling-CYOA
+    ```
 
-```bash
-cd backend
-
-# Install dependencies
-npm install
-
-# Create a .env file
-# Add the following content:
-# PORT=5000
-# MONGO_URI=mongodb://localhost:27017/storytelling_cyoa
-# JWT_SECRET=your_super_secret_key
-
-# Start the server
-npm start
-```
-*The server will run on `http://localhost:5000`.*
-
-### 2. Frontend Setup
-
-```bash
-cd frontend
-
-# Install dependencies
-npm install
-
-# Start the React development server
-npm start
-```
-*The application will open at `http://localhost:3000`.*
+2.  **Start the Application:**
+    ```bash
+    docker-compose up --build
+    ```
+    *Wait for the logs to show `Server running on port 5000` and `webpack compiled successfully`.*
 
 ---
 
-## Usage Guide (XML Format)
+## How to Run & Test (Step-by-Step)
 
-To upload a story, create an XML file following this structure. A `sample_story.xml` is provided in the root directory.
+Follow this exact sequence to populate the system and test all features.
 
+### 1. Access the Platform
+*   Open your browser to [http://localhost:3000](http://localhost:3000).
+*   You will see the Dashboard, likely empty or showing "No genres found".
+
+### 2. Admin Setup
+The system automatically creates a default Admin account on startup.
+*   Go to **Login**.
+*   **Email:** `admin@cyoa.com`
+*   **Password:** `admin123`
+*   You will now see the **Admin Command Center** at the top of the Dashboard.
+
+### 3. Populate Data (The XML Imports)
+*   **Import Genres:**
+    1.  In the Admin Panel, look for "Import Genres".
+    2.  Select the file: `sample_genres/site_genres.xml`.
+    3.  Click "Import".
+    4.  *Result:* You should see the Genre Cards (Sci-Fi, Noir, Fantasy) appear instantly.
+*   **Import Users:**
+    1.  Look for "Import Users".
+    2.  Select the file: `sample_users/users.xml`.
+    3.  Click "Import".
+    4.  *Result:* 3 new users (user1, user2, admin) are added to the database.
+*   **Logout** (Click the Logout button).
+
+### 4. Author Workflow (Uploading Stories)
+*   **Login as an Author from imported users or create a new account:**
+    *   **Email:** `user1@example.com` (This user was in the XML you just imported).
+    *   **Password:** `password123`
+*   **Upload Stories:**
+    1.  Click "Upload Story" in the navigation.
+    2.  Upload `sample_stories/detective_noir.xml`.
+    3.  Repeat for `fantasy_quest.xml` and `scifi_escape.xml`.
+*   **Verify:** Go back to the Dashboard. The "Story Count" on the Genre cards should have increased.
+
+### 5. Player Experience
+*   **Browse:** Click on the **"Science Fiction"** card.
+*   **View:** You will see "Escape from Station X-9".
+*   **Play:** Click "Play Now".
+*   Enjoy the game!
+
+---
+
+## XML Formats
+
+### Users XML (`users.xsd`)
 ```xml
-<?xml version="1.0" encoding="UTF-8"?>
+<users>
+  <user role="user"> <!-- role can be 'user' or 'admin' -->
+    <username>john_doe</username>
+    <email>john@example.com</email>
+    <password>password123</password>
+  </user>
+</users>
+```
+
+### Genres XML (`genres.xsd`)
+```xml
+<library>
+  <genre id="scifi">
+    <label>Science Fiction</label>
+    <description>Space, aliens...</description>
+    <icon>🚀</icon>
+  </genre>
+</library>
+```
+
+### Stories XML (`story.xsd`)
+```xml
 <story>
-  <title>My Adventure</title>
+  <title>My Story</title>
+  <genre>scifi</genre> <!-- Must match a genre ID -->
   <nodes>
-    <!-- The 'id' is used for linking choices -->
     <node id="start">
-      <text>You are at a crossroad.</text>
+      <text>You are in a spaceship...</text>
       <choices>
-        <choice target="forest">Go to the forest</choice>
-        <choice target="city">Go to the city</choice>
+         <choice target="room2">Go Left</choice>
       </choices>
-    </node>
-    
-    <node id="forest">
-      <text>It is dark and spooky here.</text>
-    </node>
-    
-    <node id="city">
-      <text>The lights are bright.</text>
     </node>
   </nodes>
 </story>
-```
-
----
-
-## Folder Structure
-
-```
-Dynamic-StoryTelling-CYOA/
-├── backend/
-│   ├── src/
-│   │   ├── middleware/   # Auth middleware
-│   │   ├── models/       # Mongoose Schemas (User, Story)
-│   │   ├── routes/       # API Routes (auth, stories)
-│   │   ├── schema/       # XSD and XSL files for transformation
-│   │   ├── db.js         # Database connection
-│   │   └── server.js     # Express app setup
-│   ├── index.js          # Entry point
-│   └── package.json
-├── frontend/
-│   ├── src/
-│   │   ├── components/   # Reusable UI components (Header, StoryPlayer)
-│   │   ├── context/      # AuthContext (Global State)
-│   │   ├── pages/        # Page Views (Login, Dashboard, Play, Upload)
-│   │   ├── services/     # API Service (Axios)
-│   │   └── App.js        # Main Router
-│   └── package.json
-├── sample_stories      # Some xml stories
-└── README.md
 ```

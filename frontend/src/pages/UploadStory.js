@@ -25,11 +25,7 @@ function UploadStory() {
 
     setUploading(true);
     try {
-      await api.post('/stories', formData, {
-        headers: {
-          'Content-Type': 'multipart/form-data',
-        },
-      });
+      await api.post('/stories', formData);
       navigate('/');
     } catch (err) {
       setError(err.response?.data?.message || 'Error uploading file. Ensure it is valid XML.');
